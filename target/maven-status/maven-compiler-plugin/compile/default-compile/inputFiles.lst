@@ -1,7 +1,7 @@
-/media/khalid/702C21D22C2193DE/materials/AWS/aws_workspace/aws-serverless-java-container/samples/springboot/pet-store/src/main/java/com/amazonaws/serverless/sample/springboot/model/Pet.java
-/media/khalid/702C21D22C2193DE/materials/AWS/aws_workspace/aws-serverless-java-container/samples/springboot/pet-store/src/main/java/com/amazonaws/serverless/sample/springboot/Application.java
-/media/khalid/702C21D22C2193DE/materials/AWS/aws_workspace/aws-serverless-java-container/samples/springboot/pet-store/src/main/java/com/amazonaws/serverless/sample/springboot/model/PetData.java
-/media/khalid/702C21D22C2193DE/materials/AWS/aws_workspace/aws-serverless-java-container/samples/springboot/pet-store/src/main/java/com/amazonaws/serverless/sample/springboot/controller/PetsController.java
-/media/khalid/702C21D22C2193DE/materials/AWS/aws_workspace/aws-serverless-java-container/samples/springboot/pet-store/src/main/java/com/amazonaws/serverless/sample/springboot/filter/CognitoIdentityFilter.java
-/media/khalid/702C21D22C2193DE/materials/AWS/aws_workspace/aws-serverless-java-container/samples/springboot/pet-store/src/main/java/com/amazonaws/serverless/sample/springboot/model/Error.java
-/media/khalid/702C21D22C2193DE/materials/AWS/aws_workspace/aws-serverless-java-container/samples/springboot/pet-store/src/main/java/com/amazonaws/serverless/sample/springboot/StreamLambdaHandler.java
+/home/khalid/aws/src/main/java/com/amazonaws/serverless/sample/springboot/controller/PetsController.java
+/home/khalid/aws/src/main/java/com/amazonaws/serverless/sample/springboot/model/PetData.java
+/home/khalid/aws/src/main/java/com/amazonaws/serverless/sample/springboot/Application.java
+/home/khalid/aws/src/main/java/com/amazonaws/serverless/sample/springboot/model/Pet.java
+/home/khalid/aws/src/main/java/com/amazonaws/serverless/sample/springboot/filter/CognitoIdentityFilter.java
+/home/khalid/aws/src/main/java/com/amazonaws/serverless/sample/springboot/StreamLambdaHandler.java
+/home/khalid/aws/src/main/java/com/amazonaws/serverless/sample/springboot/model/Error.java
