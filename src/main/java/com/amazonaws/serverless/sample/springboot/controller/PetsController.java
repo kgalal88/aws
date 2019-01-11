@@ -14,9 +14,12 @@ package com.amazonaws.serverless.sample.springboot.controller;
 
 
 
+import com.amazonaws.serverless.sample.springboot.filter.CognitoIdentityFilter;
 import com.amazonaws.serverless.sample.springboot.model.Pet;
 import com.amazonaws.serverless.sample.springboot.model.PetData;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,6 +35,9 @@ import java.util.UUID;
 @RestController
 @EnableWebMvc
 public class PetsController {
+	
+	private static Logger log = LoggerFactory.getLogger(PetsController.class);
+	
     @RequestMapping(path = "/pets", method = RequestMethod.POST)
     public Pet createPet(@RequestBody Pet newPet) {
         if (newPet.getName() == null || newPet.getBreed() == null) {
@@ -59,8 +65,10 @@ public class PetsController {
             newPet.setBreed(PetData.getRandomBreed());
             newPet.setDateOfBirth(PetData.getRandomDoB());
             outputPets[i] = newPet;
+            log.info("newPet.getName() = " + newPet.getName());
         }
 
+        
         return outputPets;
     }
 
