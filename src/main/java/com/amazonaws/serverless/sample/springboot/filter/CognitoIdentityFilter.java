@@ -2,8 +2,7 @@ package com.amazonaws.serverless.sample.springboot.filter;
 
 
 import com.amazonaws.serverless.proxy.RequestReader;
-import com.amazonaws.serverless.proxy.model.ApiGatewayAuthorizerContext;
-import com.amazonaws.serverless.proxy.model.ApiGatewayRequestIdentity;
+import com.amazonaws.serverless.proxy.model.AwsProxyRequestContext;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,7 +20,7 @@ import java.io.IOException;
 /**
  * Simple Filter implementation that looks for a Cognito identity id in the API Gateway request context
  * and stores the value in a request attribute. The filter is registered with aws-serverless-java-container
- * in the onStartup method from the {@link com.amazonaws.serverless.sample.spring.StreamLambdaHandler} class.
+ * in the onStartup method from the {@link com.amazonaws.serverless.sample.springboot.StreamLambdaHandler} class.
  */
 public class CognitoIdentityFilter implements Filter {
     public static final String COGNITO_IDENTITY_ATTRIBUTE = "com.amazonaws.serverless.cognitoId";
@@ -43,17 +42,17 @@ public class CognitoIdentityFilter implements Filter {
             log.warn("API Gateway context is null");
             filterChain.doFilter(servletRequest, servletResponse);
         }
-        if (!ApiGatewayRequestIdentity.class.isAssignableFrom(apiGwContext.getClass())) {
+        if (!AwsProxyRequestContext.class.isAssignableFrom(apiGwContext.getClass())) {
             log.warn("API Gateway context object is not of valid type");
             filterChain.doFilter(servletRequest, servletResponse);
         }
 
-        ApiGatewayRequestIdentity ctx = (ApiGatewayRequestIdentity)apiGwContext;
-        if (ctx.getCognitoIdentityId() == null) {
+        AwsProxyRequestContext ctx = (AwsProxyRequestContext)apiGwContext;
+        if (ctx.getIdentity() == null) {
             log.warn("Identity context is null");
             filterChain.doFilter(servletRequest, servletResponse);
         }
-        String cognitoIdentityId = ctx.getCognitoIdentityId();
+        String cognitoIdentityId = ctx.getIdentity().getCognitoIdentityId();
         if (cognitoIdentityId == null || "".equals(cognitoIdentityId.trim())) {
             log.warn("Cognito identity id in request is null");
         }
